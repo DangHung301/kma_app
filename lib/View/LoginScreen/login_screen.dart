@@ -3,19 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kma_app/Helper/const/color.dart';
+import 'package:kma_app/View/HomeScreen/home_screen.dart';
+import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
 
 class LoginScreen extends StatefulWidget {
+  final LoginViewModel viewModel;
+
+  LoginScreen(this.viewModel);
+
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController input = TextEditingController();
+  TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    Size size = MediaQuery
+        .of(context)
+        .size;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: backgroundColor,
@@ -30,7 +38,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: [
                   Image(
                     image:
-                        const AssetImage('assets/image/logo_splash_screen.png'),
+                    const AssetImage('assets/image/logo_splash_screen.png'),
                     height: size.height * 0.2,
                     width: size.width,
                   ),
@@ -53,8 +61,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   margin: const EdgeInsets.symmetric(horizontal: 27),
                   child: TextField(
-                    controller: input,
-                    cursorHeight: 41,
+                    controller: username,
                     decoration: InputDecoration(
                       hintText: 'Tài khoản',
                       fillColor: Colors.white,
@@ -101,7 +108,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: SizedBox(),
                 ),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    if(widget.viewModel.login(username.text, password.text) != '') {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                    } else {
+                    }
+                  },
                   child: Container(
                       alignment: AlignmentDirectional.center,
                       width: size.width,
@@ -112,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             colors: [startLinearColor, endLinearColor]),
                         borderRadius: BorderRadius.circular(40),
                       ),
-                      child: Text(
+                      child: const Text(
                         'Đăng nhập',
                         style: TextStyle(
                             color: Colors.white,

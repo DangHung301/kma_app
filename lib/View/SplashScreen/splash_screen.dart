@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kma_app/View/HomeScreen/home_screen.dart';
 import 'package:kma_app/View/LoginScreen/login_screen.dart';
+import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
 
 class SplashScreen extends StatefulWidget{
   const SplashScreen({Key? key}) : super(key: key);
@@ -24,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigate(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(LoginViewModel())));
   }
 
 
