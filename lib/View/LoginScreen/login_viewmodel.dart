@@ -1,7 +1,8 @@
+import 'package:kma_app/BusinessLayer/DataAccess/Http/DI/di.dart';
 import 'package:kma_app/BusinessLayer/DataAccess/Http/Service/login_service.dart';
 
 class LoginViewModel {
-  LoginService service = LoginService();
+  LoginService service = getIt<LoginService>();
 
   Future<String> login(String username, String password) async{
     Map<String, String> parameter = {

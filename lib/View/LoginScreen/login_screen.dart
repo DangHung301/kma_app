@@ -18,9 +18,9 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
+    int w;
     Size size = MediaQuery
         .of(context)
         .size;
@@ -108,8 +108,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: SizedBox(),
                 ),
                 InkWell(
-                  onTap: () {
-                    if(widget.viewModel.login(username.text, password.text) != '') {
+                  onTap: () async{
+                    String data = await widget.viewModel.login(username.text, password.text);
+                    if(data != '') {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
                     } else {
                     }

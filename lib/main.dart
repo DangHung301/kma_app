@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:kma_app/BusinessLayer/DataAccess/Http/DI/di.dart';
 import 'package:kma_app/View/SplashScreen/splash_screen.dart';
 void main() {
+  configureDependencies();
   runApp(MyApp());
 }
 

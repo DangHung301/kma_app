@@ -1,19 +1,27 @@
 import 'package:dio/dio.dart';
+import 'package:kma_app/BusinessLayer/DataAccess/Http/api_client.dart';
 import 'package:kma_app/Helper/extention/map_parse.dart';
 
 class LoginService {
-  Dio dio = Dio();
+  ApiClient _apiClient;
 
-  Future<String> login(Map<String, dynamic> parameter) async{
-    final response = await dio.post('171.244.141.137/auth/login', data: parameter);
-    Map<String, dynamic> jsonData = response.data as Map<String, dynamic>;
-    String message = jsonData.stringValueOrEmpty('message');
-    String accessToken;
-    if(message == 'Login successfully') {
-      final data = jsonData['data'];
-      accessToken = data['accessToken'];
-      return accessToken;
+  LoginService(this._apiClient);
+
+  Future<String> login(Map<String, dynamic> parameter) async {
+    try {
+      final response =
+      await _apiClient.post('http://171.244.141.137/auth/login', data: parameter);
+      if (response.statusCode == 200) {
+        Map<String, dynamic> jsonData = response.data as Map<String, dynamic>;
+        String accessToken;
+        Map<String, dynamic> data = jsonData['data'] as Map<String, dynamic>;
+        accessToken = data['accessToken'];
+        return accessToken;
+      } else {
+        return '';
+      }
+    } catch (e) {
+      return '';
     }
-    return '';
   }
 }
