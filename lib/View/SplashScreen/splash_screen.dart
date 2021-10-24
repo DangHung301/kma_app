@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:kma_app/BusinessLayer/DataAccess/Http/DI/di.dart';
+import 'package:kma_app/View/HomeScreen/home_screen.dart';
 import 'package:kma_app/View/LoginScreen/login_screen.dart';
 import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
 
@@ -25,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigate(){
-    Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(getIt<LoginViewModel>())));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
   }
 
   @override

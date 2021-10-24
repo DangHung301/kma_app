@@ -2,6 +2,7 @@ import 'package:kma_app/BusinessLayer/DataAccess/Http/DI/di.dart';
 import 'package:kma_app/BusinessLayer/DataAccess/Http/Service/login_service.dart';
 
 class LoginViewModel {
+  bool isCheckLogin = false;
   LoginService service = getIt<LoginService>();
 
   Future<String> login(String username, String password) async{
@@ -15,3 +16,4 @@ class LoginViewModel {
     return data;
   }
 }
+
