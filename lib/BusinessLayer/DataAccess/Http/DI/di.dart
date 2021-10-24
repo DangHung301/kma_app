@@ -8,6 +8,7 @@ import '../api_client.dart';
 final GetIt getIt = GetIt.instance;
 
 void configureDependencies() {
+  getIt.registerLazySingleton(() => Dio());
   getIt.registerLazySingleton<LoginViewModel>(() => LoginViewModel());
   getIt.registerLazySingleton<ApiClient>(() => ApiClient(getIt<Dio>()));
   getIt.registerLazySingleton<LoginService>(() => LoginService(getIt<ApiClient>()));
