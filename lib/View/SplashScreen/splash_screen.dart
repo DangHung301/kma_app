@@ -5,6 +5,7 @@ import 'package:kma_app/BusinessLayer/DataAccess/Http/DI/di.dart';
 import 'package:kma_app/View/HomeScreen/home_screen.dart';
 import 'package:kma_app/View/LoginScreen/login_screen.dart';
 import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
+import 'package:kma_app/View/Tabar/main_tabbar_view.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _SplashScreenState extends State<SplashScreen> {
               builder: (context) => LoginScreen(getIt<LoginViewModel>())));
     } else {
       Navigator.push(
-          context, MaterialPageRoute(builder: (context) => HomeScreen()));
+          context, MaterialPageRoute(builder: (context) => MainTabbarView()));
     }
   }
 
