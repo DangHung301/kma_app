@@ -11,16 +11,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return  Scaffold(
       backgroundColor: backgroundColor,
-      body: Center(child: GestureDetector(
-        onTap: () async{
-          SharedPreferences preferences = await SharedPreferences.getInstance();
-          preferences.remove('token');
-
-          Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen(getIt<LoginViewModel>())));
-        },
-        child: Text('asccsa'),
-
-      ),)
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text('Trang Chủ', style: Theme.of(context).textTheme.bodyText2,)
+        ],
+      )
     );
   }
 

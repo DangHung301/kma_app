@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:kma_app/Helper/const/color.dart';
 import 'package:kma_app/View/Tabar/tabbar_item.dart';
+import 'package:kma_app/View/Tabar/tabbar_viewModel.dart';
 import 'package:kma_app/View/Widget/app_bar_default.dart';
 
 class MainTabbarView extends StatefulWidget {
-  const MainTabbarView({Key? key}) : super(key: key);
-
+  const MainTabbarView({Key? key, required this.viewModel}) : super(key: key);
+  final TabbarViewModel viewModel;
   @override
   _MainTabbarViewState createState() => _MainTabbarViewState();
 }
@@ -17,18 +19,22 @@ class _MainTabbarViewState extends State<MainTabbarView> {
 
       body: IndexedStack(
         children: listScreen,
-        index: 2
-        ,
+        index: widget.viewModel.selectedIndex
       ),
       bottomNavigationBar: BottomNavigationBar(
-        selectedFontSize: 12,
-        unselectedFontSize: 12,
+        selectedFontSize: 13,
+        unselectedFontSize: 13,
         iconSize: 18,
         type: BottomNavigationBarType.fixed,
-        currentIndex: 3,
+        currentIndex: widget.viewModel.selectedIndex,
         elevation: 10.0,
-        selectedItemColor:
-        Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+        selectedItemColor: endLinearColor,
+        onTap: (index) {
+          widget.viewModel.onTap(index);
+          setState(() {
+          });
+        },
+        unselectedItemColor: endLinearColor.withOpacity(0.36),
         items: getListTabbarItem.map((e) => BottomNavigationBarItem(icon: e.icon, label: e.text)).toList(),
       ),
     );

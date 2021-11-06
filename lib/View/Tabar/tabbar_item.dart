@@ -45,15 +45,15 @@ extension TabbarEnum on TabbarType {
   TabbarItem getTabbarItem() {
     switch (this) {
       case TabbarType.news:
-        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_news, color: endLinearColor,) , text: 'News');
+        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_news) , text: 'News');
       case TabbarType.calendar:
-        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_calendar, color: endLinearColor,) , text: 'Calendar');
+        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_calendar,) , text: 'Calendar');
       case TabbarType.home:
-        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_home, color: endLinearColor,) , text: 'Home');
+        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_home) , text: 'Home');
       case TabbarType.checkIn:
-        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_checkin, color: endLinearColor,) , text: 'Check-in');
+        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_checkin) , text: 'Check-in');
       case TabbarType.menu:
-        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_menu, color: endLinearColor,) , text: 'Menu');
+        return TabbarItem(icon: const Icon(IconButtomNavigation.btn_menu) , text: 'Menu');
     }
   }
 }

@@ -25,7 +25,7 @@ class AppBarDefault extends StatelessWidget with PreferredSizeWidget {
       leading: Container(
         width: 50,
         height: 50,
-        margin: const EdgeInsets.all(6),
+        margin: const EdgeInsets.all(8),
         decoration: const BoxDecoration(
           image: DecorationImage(
               fit: BoxFit.cover, image: AssetImage('assets/image/avata.jpg')),

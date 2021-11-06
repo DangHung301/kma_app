@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kma_app/Helper/const/color.dart';
 import 'package:kma_app/View/HomeScreen/home_screen.dart';
 import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
+import 'package:kma_app/View/Tabar/main_tabbar_view.dart';
+import 'package:kma_app/View/Tabar/tabbar_viewModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -19,6 +21,7 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   TextEditingController username = TextEditingController();
   TextEditingController password = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery
@@ -27,7 +30,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return GestureDetector(
       onTap: () {
         FocusScopeNode currentFocus = FocusScope.of(context);
-        if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
           currentFocus.focusedChild!.unfocus();
         }
       },
@@ -44,8 +48,8 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Image(
-                      image:
-                      const AssetImage('assets/image/logo_splash_screen.png'),
+                      image: const AssetImage(
+                          'assets/image/logo_splash_screen.png'),
                       height: size.height * 0.2,
                       width: size.width,
                     ),
@@ -97,12 +101,13 @@ class _LoginScreenState extends State<LoginScreen> {
                           hintText: 'Mật khẩu',
                           errorText: widget.viewModel.passwordInvalidate,
                           suffixIcon: IconButton(
-                            icon: widget.viewModel.isPassword ? Icon(Icons.remove_red_eye_outlined) : Icon(Icons.remove_red_eye),
+                            icon: widget.viewModel.isPassword
+                                ? Icon(Icons.remove_red_eye_outlined)
+                                : Icon(Icons.remove_red_eye),
                             onPressed: () {
-                              widget.viewModel.isPassword = !widget.viewModel.isPassword;
-                              setState(() {
-
-                              });
+                              widget.viewModel.isPassword =
+                              !widget.viewModel.isPassword;
+                              setState(() {});
                             },
                           ),
                           fillColor: Colors.white,
@@ -113,7 +118,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               borderRadius: BorderRadius.circular(40)),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(40),
-                              borderSide: const BorderSide(color: Colors.white))),
+                              borderSide:
+                              const BorderSide(color: Colors.white))),
                     ),
                   ),
                   Container(
@@ -121,23 +127,28 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: SizedBox(),
                   ),
                   InkWell(
-                    onTap: () async{
-                      widget.viewModel.checkInvalidate(username.text, password.text);
-                      String data = await widget.viewModel.login(username.text.toString(), password.text.toString());
-                      if(data != '') {
-                        SharedPreferences preference = await SharedPreferences.getInstance();
+                    onTap: () async {
+                      widget.viewModel
+                          .checkInvalidate(username.text, password.text);
+                      String data = await widget.viewModel.login(
+                          username.text.toString(), password.text.toString());
+                      if (data != '') {
+                        SharedPreferences preference =
+                        await SharedPreferences.getInstance();
                         preference.setString('token', data);
 
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                        Navigator.pushAndRemoveUntil(
+                            context, MaterialPageRoute(builder: (context) =>
+                            MainTabbarView(viewModel: TabbarViewModel())), (
+                            route) => false);
 
 
                       } else {
-                        final snackBar = SnackBar(content: Text('Username or Passwor Inconrrect'));
+                        final snackBar = SnackBar(
+                            content: Text('Username or Passwor Inconrrect'));
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       }
-                      setState(() {
-
-                      });
+                      setState(() {});
                     },
                     child: Container(
                         alignment: AlignmentDirectional.center,
@@ -171,7 +182,8 @@ class _LoginScreenState extends State<LoginScreen> {
                             borderRadius: BorderRadius.circular(40)),
                         child: const Text(
                           'Đăng nhập với quyền giảng viên',
-                          style: TextStyle(color: startLinearColor, fontSize: 15),
+                          style:
+                          TextStyle(color: startLinearColor, fontSize: 15),
                         )),
                   ),
                   TextButton(
