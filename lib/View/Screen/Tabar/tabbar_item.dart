@@ -1,17 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:kma_app/Helper/const/color.dart';
 import 'package:kma_app/Helper/const/icon_bottom_navigation.dart';
-import 'package:kma_app/View/CalendarScreen/calendar_screen.dart';
-import 'package:kma_app/View/CheckinScreen/checkin_screen.dart';
-import 'package:kma_app/View/HomeScreen/home_screen.dart';
-import 'package:kma_app/View/MenuScreen/menu_screen.dart';
-import 'package:kma_app/View/NewsScreen/news_screen.dart';
+import 'package:kma_app/View/Screen/CalendarScreen/calendar_screen.dart';
+import 'package:kma_app/View/Screen/CheckinScreen/checkin_screen.dart';
+import 'package:kma_app/View/Screen/HomeScreen/home_screen.dart';
+import 'package:kma_app/View/Screen/HomeScreen/home_view_model.dart';
+import 'package:kma_app/View/Screen/MenuScreen/menu_screen.dart';
+import 'package:kma_app/View/Screen/NewsScreen/news_screen.dart';
 
 List<Widget> listScreen = [
   NewsScreen(),
   CalendarScreen(),
-  HomeScreen(),
+  HomeScreen(viewModel: HomeViewModel(),),
   CheckinScreen(),
   MenuScreen()
 ];

@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:kma_app/Helper/const/color.dart';
-import 'package:kma_app/View/HomeScreen/home_screen.dart';
-import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
-import 'package:kma_app/View/Tabar/main_tabbar_view.dart';
-import 'package:kma_app/View/Tabar/tabbar_viewModel.dart';
+import 'package:kma_app/View/Screen/Tabar/main_tabbar_view.dart';
+import 'package:kma_app/View/Screen/Tabar/tabbar_viewModel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'login_viewmodel.dart';
 
 class LoginScreen extends StatefulWidget {
   final LoginViewModel viewModel;

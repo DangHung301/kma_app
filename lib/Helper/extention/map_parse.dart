@@ -22,4 +22,14 @@ extension MapParse on Map {
     }
     return 0;
   }
+
+  List<dynamic> arrayValueOfEmpty(String key) {
+    final vl = this[key];
+    if(vl != null && vl is List) {
+      return vl;
+    }
+
+    return [];
+
+  }
 }

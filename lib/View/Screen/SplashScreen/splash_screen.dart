@@ -1,12 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:kma_app/BusinessLayer/DataAccess/Http/DI/di.dart';
-import 'package:kma_app/View/HomeScreen/home_screen.dart';
-import 'package:kma_app/View/LoginScreen/login_screen.dart';
-import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
-import 'package:kma_app/View/Tabar/main_tabbar_view.dart';
-import 'package:kma_app/View/Tabar/tabbar_viewModel.dart';
+import 'package:kma_app/View/Screen/LoginScreen/login_screen.dart';
+import 'package:kma_app/View/Screen/LoginScreen/login_viewmodel.dart';
+import 'package:kma_app/View/Screen/Tabar/main_tabbar_view.dart';
+import 'package:kma_app/View/Screen/Tabar/tabbar_viewModel.dart';
+
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {

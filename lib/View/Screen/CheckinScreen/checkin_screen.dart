@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kma_app/BusinessLayer/DataAccess/Http/DI/di.dart';
 import 'package:kma_app/Helper/const/color.dart';
-import 'package:kma_app/View/LoginScreen/login_screen.dart';
-import 'package:kma_app/View/LoginScreen/login_viewmodel.dart';
+import 'package:kma_app/View/Screen/LoginScreen/login_screen.dart';
+import 'package:kma_app/View/Screen/LoginScreen/login_viewmodel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class CheckinScreen extends StatelessWidget {

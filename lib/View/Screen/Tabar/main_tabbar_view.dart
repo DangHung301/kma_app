@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kma_app/Helper/const/color.dart';
-import 'package:kma_app/View/Tabar/tabbar_item.dart';
-import 'package:kma_app/View/Tabar/tabbar_viewModel.dart';
+import 'package:kma_app/View/Screen/Tabar/tabbar_item.dart';
+import 'package:kma_app/View/Screen/Tabar/tabbar_viewModel.dart';
 import 'package:kma_app/View/Widget/app_bar_default.dart';
 
 class MainTabbarView extends StatefulWidget {
